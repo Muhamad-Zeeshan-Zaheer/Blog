@@ -1,0 +1,18 @@
+<% @article.comments.each do |comment| %>
+  <%unless comment.archived?%>
+  <p>
+    <strong>Title:</strong>
+    <%= comment.title %>
+  </p>
+
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+  <%= link_to "Delete Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                }, class:"btn btn-danger" %>
+  <%= link_to "Edit Comment", edit_article_comment_path(article_id: @article.id, id: comment.id), class: "btn btn-warning" %>
+  <%end%>
+<% end %>

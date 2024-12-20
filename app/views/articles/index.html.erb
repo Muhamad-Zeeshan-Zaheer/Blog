@@ -1,0 +1,29 @@
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @articles.each do |a| %>
+     
+      <tr>
+        <td><%= a.title %></td>
+        <td><%= a.body %></td>
+        <td><%=a.status%></td>
+        <td><%= link_to "Show Article", article_path(a), class: "btn btn-primary" %>
+            <%= link_to "Edit Article", edit_article_path(a), class: "btn btn-warning" %>
+            <%= link_to "Delete", article_path(a), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  }, class:"btn btn-danger" %>
+        </td>
+      </tr>
+     
+    <% end %>
+  </tbody>
+</table>

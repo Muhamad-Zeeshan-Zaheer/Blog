@@ -1,0 +1,26 @@
+<table class="table">
+  <thead>
+    <tr>
+   
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <tr>
+      <td><%=@article.title%></td>
+      <td><%=@article.body%></td>
+      <td><%= link_to "Delete", article_path, data: {
+        turbo_method: :delete,
+        turbo_confirm: "Are you sure?"
+      }, class:"btn btn-danger" %></td>
+    </tr>
+  </tbody>
+</table>
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+<h2>Add a comment:</h2>
+<%= render "comments/form", article: @article %>

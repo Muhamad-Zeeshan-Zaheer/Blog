@@ -13,6 +13,8 @@ development:
 test:
   <<: *default
   database: blog_test
+  host: localhost
+
 
 production:
   <<: *default

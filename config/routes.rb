@@ -9,10 +9,9 @@ Rails.application.routes.draw do
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
   get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
 
-  #root route
-  root 'articles#index'
+  # root route
+  root "articles#index"
 
-  #Articles routes
-  get 'articles', to: 'articles#index'
-
+  # Articles routes
+  get "articles", to: "articles#index"
 end

@@ -1,0 +1,14 @@
+<table class="table table-striped-columns">
+  <thead>
+    <tr>
+      <th scope="col">Title</th>
+      <th scope="col">Body</th>
+    </tr>
+  </thead>
+  <% @articles.each do |article| %>
+    <tr>
+      <td><a href="/articles/<%= article.id %>"><%= article.title %></a></td>
+      <td><%= article.body %></td>
+    </tr>
+  <% end %>
+</table>

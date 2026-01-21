@@ -7,6 +7,7 @@ Our blog has <%= Article.public_count %> articles and counting!
     <tr>
       <th scope="col">Title</th>
       <th scope="col">Body</th>
+      <th scope = "col">Status</th>
       <th scope = "col">Actions</th>
     </tr>
   </thead>
@@ -15,6 +16,7 @@ Our blog has <%= Article.public_count %> articles and counting!
       <tr>
         <td><%= article.title %></td>
         <td><%= article.body %></td>
+        <td><%= article.status %></td>
         <td>
           <%= link_to "Show Article", article_path(article), class:"btn btn-primary"%>
           <%= link_to "Edit Article", edit_article_path(article), class:"btn btn-secondary"%>

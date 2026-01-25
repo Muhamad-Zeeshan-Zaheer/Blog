@@ -1,0 +1,25 @@
+<% @article.comments.each do |comment| %>
+  <% unless comment.archived? %>
+    <table class="table table-striped-columns">
+      <thead>
+        <tr>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+          <th scope="col">Actions</th>
+
+        </tr>
+      </thead>
+        <tr>
+          <td><%= comment.title %></td>
+          <td><%= comment.body %></td>
+          <td>
+            <%= link_to "Destroy Comment", [comment.article, comment], data: {
+                  turbo_method: :delete,
+                  turbo_confirm: "Are you sure?"
+                }, class:"btn btn-danger"
+            %>
+          </td>
+        </tr>
+    </table>
+  <% end %>
+<% end %>
